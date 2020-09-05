@@ -22,7 +22,6 @@ try:
     with open('follower_list.txt','w') as file1:
         for id in follower_ids:
             file1.write("%s\n" % id)
-        file1.close()
 
     followee_ids = []
     for page in tweepy.Cursor(api.friends_ids, screen_name=target_ac).pages():
@@ -31,7 +30,6 @@ try:
     with open('followee_list.txt','w') as file2:
         for id in followee_ids:
             file2.write("%s\n" % id)
-        file2.close()
 
 except tweepy.TweepError:
     print ("tweepy.TweepError=", tweepy.TweepError)
